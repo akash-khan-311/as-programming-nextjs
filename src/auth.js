@@ -6,8 +6,7 @@ import { setCookie } from "cookies-next";
 import User from "./models/User";
 import bcrypt from "bcryptjs";
 import dbConnect from "./lib/dbConnect";
-import jwt from "jsonwebtoken";
-import toast from "react-hot-toast";
+
 export const {
   handlers: { GET, POST },
   auth,
@@ -19,6 +18,7 @@ export const {
   session: {
     strategy: "jwt",
     maxAge: 60 * 60 * 24, // 1 day
+    updateAge: 60 * 60 * 24, // 1 day
   },
   providers: [
     CredentialsProvider({
@@ -85,33 +85,18 @@ export const {
       session.user.email = token.email;
       return session;
     },
-    // async signIn({ user, req, res }) {
-    //   if (!req || !res) {
-    //     console.error("Missing req or res object in signin callback");
-    //     return false;
-    //   }
-    //   const jwtToken = jwt.sign(
-    //     { id: user._id, email: user.email },
-    //     process.env.JWT_SECRET,
-    //     { expiresIn: "1h" }
-    //   );
-
-    //   // Debugging to check JWT token generation
-    //   console.log("Generated JWT token:", jwtToken);
-    //   // Set JWT token in cookies
-    //   setCookie("token", jwtToken, {
-    //     req, // Pass req and res
-    //     res,
-    //     maxAge: 60 * 60 * 24, // 1 day expiration
-    //     httpOnly: false,
-    //     secure: process.env.NODE_ENV === "production",
-    //     path: "/",
-    //   });
-
-    //   console.log("Custom token set in cookies");
-
-    //   return true; // Indicate successful sign-in
-    // },
+  },
+  cookies: {
+    sessionToken: {
+      name: "token",
+      options: {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production", // Only set cookies on production
+        maxAge: 60 * 60 * 24 * 30, // 30 days
+        path: "/",
+        maxAge: 60 * 60 * 24,
+      },
+    },
   },
   secret: process.env.AUTH_SECRET, // Ensure this is set in your .env
 });

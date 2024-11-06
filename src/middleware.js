@@ -1,9 +1,9 @@
 import { NextResponse } from "next/server";
 
 export async function middleware(request) {
-  const tokenInfo = request.cookies.get("authjs.session-token");
+  const tokenInfo = request.cookies.get("token");
   const token = tokenInfo?.value;
-
+  console.log("this is token:=============>", token);
   const userNavigatingRoute = request.nextUrl.pathname;
   console.log("User Navigating Route:", userNavigatingRoute);
 
