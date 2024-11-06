@@ -29,3 +29,19 @@ export const getSingleCourse = async (id) => {
     return null;
   }
 };
+
+// Get all instructor's courses from db
+export const getCoursesForIns = async (email) => {
+  try {
+    const response = await fetch(`http://localhost:3000/api/courses/${email}`);
+    const data = await response.json();
+    if (response.ok) {
+      return data.courses;
+    } else {
+      throw new Error("Failed to fetch courses");
+    }
+  } catch (error) {
+    console.log("Error fetching courses:", error);
+    return null;
+  }
+};

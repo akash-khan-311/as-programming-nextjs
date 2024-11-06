@@ -7,7 +7,7 @@ const CourseDetailsPage = async ({ params: { id } }) => {
   const res = await fetch(`http://localhost:3000/api/course/${id}`);
   const data = await res.json();
   const course = data.course;
-  console.log(course);
+
   if (!course) {
     return (
       <>

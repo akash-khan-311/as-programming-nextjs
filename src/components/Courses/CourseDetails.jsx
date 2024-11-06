@@ -5,7 +5,6 @@ import { GiTeacher } from "react-icons/gi";
 
 const CourseDetails = async ({ course }) => {
   const { title, img, description, price, _id, instructor } = course;
-  console.log("this is course description", course);
 
   return (
     <section className="section mt-20">
