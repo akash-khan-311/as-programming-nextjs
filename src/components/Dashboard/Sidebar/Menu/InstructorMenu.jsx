@@ -30,7 +30,7 @@ const InstructorMenu = () => {
       />
       <MenuItem
         label="Assignments"
-        path="/dashboard/tassignments"
+        path="/dashboard/iassignments"
         icon={MdAssignment}
       />
     </>

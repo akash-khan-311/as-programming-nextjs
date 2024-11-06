@@ -25,10 +25,14 @@ const DashboardLayout = async ({ children }) => {
   const session = await auth();
   return (
     <>
-      <div className={`${inter.className} relative min-h-screen lg:flex`}>
+      <div
+        className={`${inter.className} relative min-h-screen lg:flex  h-full w-full bg-slate-950`}
+      >
+        <div className="absolute bottom-0 left-[-20%] right-0 top-[-10%] h-[500px] w-[500px]  rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]" />
+        <div className="absolute bottom-0 right-[-20%] top-[-10%] h-[500px] w-[500px]  rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]" />
         <Sidebar user={session?.user} />
         <Toaster position="top-center" />
-        <div className="flex-1  lg:ml-64">
+        <div className="flex-1 relative lg:ml-64 z-[0]">
           <div className="p-5">{children}</div>
         </div>
       </div>

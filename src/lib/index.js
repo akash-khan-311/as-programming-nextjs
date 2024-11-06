@@ -45,3 +45,46 @@ export const getCoursesForIns = async (email) => {
     return null;
   }
 };
+
+// Get all users from db
+export const getAllUsers = async () => {
+  try {
+    const res = await fetch("http://localhost:3000/api/users", {
+      cache: "no-store",
+    });
+    const data = await res.json();
+    if (res.ok) {
+      return data.users;
+    } else {
+      throw new Error("Failed to fetch users");
+    }
+  } catch (error) {
+    console.log("Error fetching users:", error);
+    return null;
+  }
+};
+
+export const updatedUserRoles = async (email, role) => {
+  try {
+    const response = await fetch(
+      `http://localhost:3000/api/user/${email}`,
+
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ role }),
+      }
+    );
+    const data = await response.json();
+    if (response.ok) {
+      return data;
+    } else {
+      throw new Error("Failed to update user role");
+    }
+  } catch (error) {
+    console.log("Error updating user role:", error);
+    return null;
+  }
+};
