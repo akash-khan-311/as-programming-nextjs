@@ -7,7 +7,6 @@ const ManageUserPage = async () => {
   const session = await auth();
   const user = session.user;
 
-  console.log(users);
   return (
     <>
       <ManageUser users={users} authUser={user} />
