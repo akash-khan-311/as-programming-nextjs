@@ -3,7 +3,7 @@ import CourseCard from "@/components/Shared/CourseCard";
 import { getCourses } from "@/courseData";
 import { getUserRole } from "@/lib";
 import { revalidatePath } from "next/cache";
-
+import { HoverEffect } from "@/components/ui/card-hover-effect";
 const CoursesPage = async () => {
   const res = await fetch(
     `http://localhost:3000/api/courses`,
@@ -27,11 +27,12 @@ const CoursesPage = async () => {
               </div>
 
               {/* Courses List */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-8">
+              {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-8">
                 {courses.map((course) => (
                   <CourseCard key={course._id} data={course} />
                 ))}
-              </div>
+              </div> */}
+              <HoverEffect items={courses} />
             </>
           ) : (
             <>
