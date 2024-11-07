@@ -128,3 +128,21 @@ export const updateCourseStatus = async (id) => {
     }
   } catch (error) {}
 };
+// Get only beggiener courses from db
+
+export const getBeginnerCourses = async () => {
+  try {
+    const response = await fetch(`http://localhost:3000/api/courses/begginer`, {
+      cache: "no-store",
+    });
+    const data = await response.json();
+    if (response.ok) {
+      return data;
+    } else {
+      throw new Error("Failed to fetch beginner courses");
+    }
+  } catch (error) {
+    console.log("Error fetching beginner courses:", error);
+    return null;
+  }
+};
