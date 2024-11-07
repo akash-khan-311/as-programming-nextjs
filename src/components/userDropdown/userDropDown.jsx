@@ -12,16 +12,17 @@ const UserDropDown = ({ user }) => {
     setIsOpen((prev) => !prev);
   };
 
+  console.log(user);
   return (
     <>
       {user && (
         <div className=" relative inline-flex ">
           <Image
             onClick={handleAvatarClick}
-            src={user?.avatar || "/bg-jpg.jpg"}
+            src={user?.avatar || user?.image || "/avatar.jpg"}
             alt={user.name}
-            width={100}
-            height={100}
+            width={200}
+            height={200}
             className="rounded-full w-12 h-12 border cursor-pointer"
           />
 

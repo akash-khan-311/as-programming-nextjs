@@ -6,7 +6,7 @@ const Hero = () => {
   const words = `Welcome to the AS Programming Course Platform`;
   return (
     <>
-      <header className="hero-section">
+      <section className="hero-section">
         <div className="flex flex-col justify-center items-center  text-white text-center min-h-[calc(100vh)]">
           <h1 className="flex justify-center items-center w-full">
             <TextGenerateEffect
@@ -19,7 +19,7 @@ const Hero = () => {
           </p>
           <Buttons />
         </div>
-      </header>
+      </section>
     </>
   );
 };

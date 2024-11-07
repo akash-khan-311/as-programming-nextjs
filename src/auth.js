@@ -71,32 +71,50 @@ export const {
     }),
   ],
   callbacks: {
+    async signIn({ user, account, profile }) {
+      await dbConnect();
+      const existingUser = await User.findOne({ email: user.email });
+      if (!existingUser) {
+        await User.create({
+          name: user.name,
+          email: user.email,
+          avatar: user.image,
+          role: "user",
+          status: "verified",
+        });
+      }
+      return true; // Return true to allow sign-in
+    },
     async jwt({ token, user }) {
-      // Add user info to JWT if available
       if (user) {
-        token.id = user._id;
+        token.id = user.sub;
         token.email = user.email;
+        token.role = user.role;
+        token.avatar = user.image;
       }
       return token;
     },
     async session({ session, token }) {
-      // Attach token info to session
       session.user.id = token.id;
       session.user.email = token.email;
+      session.user.role = token.role;
+      session.user.avatar = token.avatar;
+
       return session;
     },
   },
+
   cookies: {
     sessionToken: {
       name: "token",
       options: {
         httpOnly: true,
-        secure: process.env.NODE_ENV === "production", // Only set cookies on production
+        secure: process.env.NODE_ENV === "production",
         maxAge: 60 * 60 * 24 * 30, // 30 days
         path: "/",
         maxAge: 60 * 60 * 24,
       },
     },
   },
-  secret: process.env.AUTH_SECRET, // Ensure this is set in your .env
+  secret: process.env.AUTH_SECRET,
 });

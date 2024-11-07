@@ -33,7 +33,9 @@ export default async function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Navbar user={session?.user} />
+        <header>
+          <Navbar user={session?.user} />
+        </header>
         <main className="min-h-[calc(100vh-268px)]">
           <Toaster position="top-center" reverseOrder={false} />
           {children}

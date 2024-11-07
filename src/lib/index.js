@@ -88,3 +88,43 @@ export const updatedUserRoles = async (email, role) => {
     return null;
   }
 };
+
+// Get all courses for admin
+export const getAllCoursesAdmin = async (email) => {
+  try {
+    const response = await fetch(
+      `http://localhost:3000/api/admin/courses/${email}`,
+      {
+        cache: "no-store",
+      }
+    );
+    const data = await response.json();
+    console.log(data);
+    if (response.ok) {
+      return data;
+    } else {
+      throw new Error("Failed to fetch courses");
+    }
+  } catch (error) {
+    console.log("Error fetching courses:", error);
+    return null;
+  }
+};
+
+// Update course status
+
+export const updateCourseStatus = async (id) => {
+  try {
+    const response = await fetch(
+      `http://localhost:3000/api/course/update/${id}`,
+      { method: "PUT" },
+      { cache: "no-store" }
+    );
+    const data = await response.json();
+    if (response.ok) {
+      return data;
+    } else {
+      throw new Error("Failed to update course status");
+    }
+  } catch (error) {}
+};
