@@ -45,7 +45,7 @@ export async function POST(req) {
     total_amount: amount.toString(),
     currency: "BDT",
     tran_id,
-    success_url: `http://localhost:3000/api/payment/success?tran_id=${tran_id}&user_id=${user._id.toString()}&amount=${amount}&course_id=${course_id}`,
+    success_url: `http://localhost:3000/api/payment/success?tran_id=${tran_id}&user_email=${session.user.email}&amount=${amount}&course_id=${course_id}`,
     fail_url: `http://localhost:3000/api/payment/fail?tran_id=${tran_id}`,
     cancel_url: `http://localhost:3000/api/payment/cancel?tran_id=${tran_id}`,
     ipn_url: "http://localhost:3000/api/payment/ipn",

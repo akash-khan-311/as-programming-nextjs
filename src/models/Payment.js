@@ -8,12 +8,12 @@ const PaymentSchema = new mongoose.Schema({
   course_id: {
     type: String,
     required: true,
-    ref: "Course", // Assuming you have a 'Course' model
+    ref: "Course",
   },
-  user_id: {
+  user_email: {
     type: String,
     required: true,
-    ref: "User", // Assuming you have a 'User' model
+    ref: "User",
   },
   amount: {
     type: Number,

@@ -188,3 +188,25 @@ export const sslCommerzPayment = async (payload) => {
     return null;
   }
 };
+
+// Get purchased courses from db
+
+export const getPurchasedCourses = async (email) => {
+  try {
+    const response = await fetch(
+      `http://localhost:3000/api/purchased/course/${email}`,
+      {
+        cache: "no-store",
+      }
+    );
+    const data = await response.json();
+    if (response.ok) {
+      return data;
+    } else {
+      throw new Error("Failed to fetch purchased courses");
+    }
+  } catch (error) {
+    console.log("Error fetching purchased courses:", error);
+    return null;
+  }
+};
