@@ -25,11 +25,22 @@ export async function middleware(request) {
     redirectUrl.searchParams.set("callbackUrl", userNavigatingRoute);
     return NextResponse.redirect(redirectUrl);
   }
+  if (!token && userNavigatingRoute.startsWith("/checkout")) {
+    const redirectUrl = new URL("/login", request.url);
+    redirectUrl.searchParams.set("callbackUrl", userNavigatingRoute);
+    return NextResponse.redirect(redirectUrl);
+  }
 
   console.log("Middleware is running");
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: ["/login", "/register", "/course/:path*", "/dashboard/:path*"],
+  matcher: [
+    "/login",
+    "/register",
+    "/course/:path*",
+    "/dashboard/:path*",
+    "/checkout",
+  ],
 };

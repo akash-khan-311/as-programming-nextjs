@@ -5,7 +5,10 @@ import { NextResponse } from "next/server";
 export async function GET(req) {
   await dbConnect();
   try {
-    const courses = await Course.find({ level: "Beginner" });
+    const courses = await Course.find({
+      level: "Beginner",
+      status: "approved",
+    });
     return NextResponse.json(courses);
   } catch (error) {
     console.error("Error fetching courses:", error);

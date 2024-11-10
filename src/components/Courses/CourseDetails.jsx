@@ -3,7 +3,12 @@ import Image from "next/image";
 import { MdMarkEmailRead } from "react-icons/md";
 import { GiTeacher } from "react-icons/gi";
 
+import { auth } from "@/auth";
+import HandleBuyNow from "../Shared/handleBuyNow";
+
 const CourseDetails = async ({ course }) => {
+  const session = await auth();
+  const user = session?.user;
   const { title, img, description, price, _id, instructor } = course;
 
   return (
@@ -23,10 +28,10 @@ const CourseDetails = async ({ course }) => {
                   Price: ৳{price}
                 </h5>
               </div>
-              {/* <div className="p-6 pt-0 w-full">
-                <HandleAddToBookmark id={_id} />
-                <HandleAddToCart id={_id} />
-              </div> */}
+              <div className="p-6 pt-0 w-full">
+                {/* <HandleAddToBookmark id={_id} /> */}
+                <HandleBuyNow user={user} course={course} />
+              </div>
             </div>
             <div className="space-y-4 flex-1 ">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-center lg:text-left">
@@ -43,11 +48,15 @@ const CourseDetails = async ({ course }) => {
                   </p>
                 </div>
                 <div>
-                  {/* <img
+                  <Image
                     className="h-36 w-36 rounded-full"
-                    src={instructorImage ? instructorImage : demoImg}
-                    alt=""
-                  /> */}
+                    src={
+                      course?.instructor
+                        ? course?.instructor.avatar
+                        : course?.instructor.avatar
+                    }
+                    alt={course?.instructor.name}
+                  />
                 </div>
               </div>
             </div>

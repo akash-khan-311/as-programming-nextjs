@@ -134,6 +134,7 @@ export const getBeginnerCourses = async () => {
   try {
     const response = await fetch(`http://localhost:3000/api/courses/begginer`, {
       cache: "no-store",
+      revalidatePath: "/",
     });
     const data = await response.json();
     if (response.ok) {
@@ -143,6 +144,47 @@ export const getBeginnerCourses = async () => {
     }
   } catch (error) {
     console.log("Error fetching beginner courses:", error);
+    return null;
+  }
+};
+
+export const addToCart = async (email, courseId) => {
+  try {
+    const response = await fetch("http://localhost:3000/api/cart", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, courseId }),
+      next: { revalidate: new Date().getSeconds() },
+    });
+    const data = await response.json();
+    if (response.ok) {
+      return data;
+    }
+    throw new Error("Failed to add course to cart");
+  } catch (error) {
+    console.log("Error adding course to cart:", error);
+    return null;
+  }
+};
+
+// Handle ssl commerz api
+
+export const sslCommerzPayment = async (payload) => {
+  try {
+    const response = await fetch("http://localhost:3000/api/payment", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+    const data = await response.json();
+    if (response.ok) {
+      return data;
+    }
+    throw new Error("Failed to make payment");
+  } catch (error) {
+    console.log("Error making payment:", error);
     return null;
   }
 };
