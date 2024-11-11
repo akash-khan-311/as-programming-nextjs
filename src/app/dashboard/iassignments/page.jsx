@@ -1,3 +1,5 @@
+import InstructorAssignments from "@/components/Dashboard/Instroctor/InstructorAssignments";
+
 export const metadata = {
   title: "Assignment",
   description:
@@ -18,7 +20,7 @@ export const metadata = {
 const IAssignmentsPage = () => {
   return (
     <>
-      <div className="">Welcome to IAssignmentsPage</div>
+      <InstructorAssignments />
     </>
   );
 };

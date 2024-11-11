@@ -62,7 +62,7 @@ const BestCourse = () => {
             className=""
           >
             {courses.map((course) => (
-              <SwiperSlide key={course.id} className="">
+              <SwiperSlide key={course._id} className="">
                 <CourseCard data={course} />
               </SwiperSlide>
             ))}

@@ -210,3 +210,85 @@ export const getPurchasedCourses = async (email) => {
     return null;
   }
 };
+
+// save assignment data on database
+
+export const saveAssignment = async (assignmentData) => {
+  try {
+    const response = await fetch("http://localhost:3000/api/assignment", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(assignmentData),
+    });
+    const data = await response.json();
+    if (response.ok) {
+      return data;
+    }
+    throw new Error("Failed to save assignment");
+  } catch (error) {
+    console.log("Error saving assignment:", error);
+    return null;
+  }
+};
+
+// Get Assignment for student
+
+export const getAssignmentForStudent = async (email) => {
+  try {
+    const response = await fetch(
+      `http://localhost:3000/api/assignment/student/${email}`,
+      {
+        cache: "no-store",
+      }
+    );
+    const data = await response.json();
+    if (response.ok) {
+      return data;
+    } else {
+      throw new Error("Failed to fetch assignment");
+    }
+  } catch (error) {
+    console.log("Error fetching assignment:", error);
+    return null;
+  }
+};
+
+// Get Assignment for instructor
+
+export const getAssignmentForInstructor = async (email) => {
+  try {
+    const response = await fetch(
+      `http://localhost:3000/api/assignment/instructor/${email}`,
+      {
+        cache: "no-store",
+      }
+    );
+    const data = await response.json();
+    if (response.ok) {
+      return data;
+    } else {
+      throw new Error("Failed to fetch assignment");
+    }
+  } catch (error) {
+    console.log("Error fetching assignment:", error);
+    return null;
+  }
+};
+
+// Convert TimeStamp to Date
+
+export const convertTimestampToDate = (timestamp, format = "dd-MM-yyyy") => {
+  const date = new Date(timestamp);
+
+  // Helper function to pad single digit numbers with a leading zero
+  const pad = (num) => num.toString().padStart(2, "0");
+
+  const year = date.getFullYear();
+  const month = pad(date.getMonth() + 1); // Months are zero-based, so add 1
+  const day = pad(date.getDate());
+
+  // Default format is 'yyyy-MM-dd HH:mm:ss'
+  return format.replace("dd", day).replace("MM", month).replace("yyyy", year);
+};
