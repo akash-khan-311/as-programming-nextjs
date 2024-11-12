@@ -36,7 +36,6 @@ export async function POST(req) {
   }
 
   const user = await User.findOne({ email: session.user.email });
-  console.log("this is user from payment api:", course_id);
 
   // Construct the payload using URLSearchParams for URL-encoded format
   const payload = new URLSearchParams({
@@ -45,10 +44,10 @@ export async function POST(req) {
     total_amount: amount.toString(),
     currency: "BDT",
     tran_id,
-    success_url: `http://localhost:3000/api/payment/success?tran_id=${tran_id}&user_email=${session.user.email}&amount=${amount}&course_id=${course_id}`,
-    fail_url: `http://localhost:3000/api/payment/fail?tran_id=${tran_id}`,
-    cancel_url: `http://localhost:3000/api/payment/cancel?tran_id=${tran_id}`,
-    ipn_url: "http://localhost:3000/api/payment/ipn",
+    success_url: `https://as-programming-next.netlify.app/api/payment/success?tran_id=${tran_id}&user_email=${session.user.email}&amount=${amount}&course_id=${course_id}`,
+    fail_url: `https://as-programming-next.netlify.app/api/payment/fail?tran_id=${tran_id}`,
+    cancel_url: `https://as-programming-next.netlify.app/api/payment/cancel?tran_id=${tran_id}`,
+    ipn_url: "https://as-programming-next.netlify.app/api/payment/ipn",
     cus_name,
     cus_email,
     cus_phone,
@@ -85,7 +84,6 @@ export async function POST(req) {
       );
     }
   } catch (error) {
-    console.error("Error initiating payment:", error);
     return NextResponse.json(
       {
         message: "Error initiating payment",

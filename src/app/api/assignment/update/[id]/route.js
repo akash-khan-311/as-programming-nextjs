@@ -23,7 +23,6 @@ export async function PATCH(req, { params }) {
     }
     return NextResponse.json({ success: true, data: updatedAssignment });
   } catch (error) {
-    console.error("Error updating assignment:", error);
     return NextResponse.json(
       { success: false, message: error.message },
       { status: 500 }

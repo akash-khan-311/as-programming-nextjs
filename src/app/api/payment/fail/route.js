@@ -29,7 +29,6 @@ export async function POST(req, res) {
   try {
     await paymentDetails.save();
   } catch (error) {
-    console.error("Error saving payment failure details:", error);
     return new Response(
       JSON.stringify({ message: "Error saving payment failure" }),
       { status: 500 }

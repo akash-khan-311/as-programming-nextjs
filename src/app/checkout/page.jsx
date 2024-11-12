@@ -66,7 +66,6 @@ const CheckoutPage = () => {
         alert(`Payment initiation failed: ${data.error || "Unknown error"}`);
       }
     } catch (error) {
-      console.error("Error initiating payment:", error);
       alert("An error occurred while processing your payment.");
     } finally {
       setLoading(false);

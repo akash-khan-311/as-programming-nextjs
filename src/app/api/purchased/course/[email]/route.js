@@ -34,7 +34,6 @@ export async function GET(req, { params }) {
     ]);
     return NextResponse.json({ success: true, data: purchasedCourses });
   } catch (error) {
-    console.error("Error fetching purchased courses:", error);
     return NextResponse.json({ message: error.message }, { status: 500 });
   }
 }

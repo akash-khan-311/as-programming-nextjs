@@ -24,7 +24,7 @@ export default function Profile({ user }) {
           />
           <div>
             <h2 className="text-2xl font-semibold text-white">{user?.name}</h2>
-            <p className="text-gray-500">{role.toUpperCase()}</p>
+            <p className="text-gray-500">{role?.toUpperCase()}</p>
           </div>
           <button
             onClick={handleEditToggle}

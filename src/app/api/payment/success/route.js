@@ -36,7 +36,6 @@ export async function POST(req) {
 
     return NextResponse.redirect(new URL("/payment/success", req.url), 303);
   } catch (error) {
-    console.error("Error processing payment:", error);
     return NextResponse.json(
       { message: "Error processing payment" },
       { status: 500 }

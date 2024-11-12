@@ -63,13 +63,16 @@ const AddCourse = ({ user }) => {
       };
 
       // Save course to backend
-      const response = await fetch(`http://localhost:3000/api/savecourse`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(course),
-      });
+      const response = await fetch(
+        `https://as-programming-next.netlify.app/api/savecourse`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(course),
+        }
+      );
       const data = await response.json();
 
       if (response.ok) {

@@ -18,7 +18,7 @@ const ManageCoursesAd = ({ courses, authUser }) => {
         router.refresh();
       }
     } catch (error) {
-      console.error(error);
+      console.log(error);
     }
   };
   return (

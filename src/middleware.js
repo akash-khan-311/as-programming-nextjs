@@ -31,7 +31,6 @@ export async function middleware(request) {
     return NextResponse.redirect(redirectUrl);
   }
 
-  console.log("Middleware is running");
   return NextResponse.next();
 }
 

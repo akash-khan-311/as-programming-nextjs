@@ -11,13 +11,11 @@ export async function POST(req) {
     const courseData = await req.json();
 
     // Log the received course data to verify it
-    console.log("Received Course Data:", courseData);
 
     const newCourse = new Course(courseData);
     await newCourse.save();
     return NextResponse.json({ success: true, course: newCourse });
   } catch (error) {
-    console.error("Error creating course:", error);
     if (error.name === "ValidationError") {
       const validationErrors = Object.keys(error.errors).map((key) => {
         return `${key}: ${error.errors[key].message}`;

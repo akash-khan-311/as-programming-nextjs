@@ -8,7 +8,7 @@ const CoursesPage = async () => {
   const user = session.user;
 
   const data = await getPurchasedCourses(user.email);
-  console.log(data.data);
+
   if (!data.data) {
     return (
       <>
