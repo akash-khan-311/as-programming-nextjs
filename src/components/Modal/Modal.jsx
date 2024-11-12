@@ -1,7 +1,12 @@
+"use client";
 import { useForm } from "react-hook-form";
 import { Button, Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 import Field from "../Shared/Form/Field";
+import { updateAssignment } from "@/lib";
+import { useState } from "react";
+import toast from "react-hot-toast";
 const Modal = ({ assignment, isOpen, setIsOpen }) => {
+  const [loading, setLoading] = useState(false);
   const {
     register,
     handleSubmit,
@@ -9,7 +14,23 @@ const Modal = ({ assignment, isOpen, setIsOpen }) => {
   } = useForm();
 
   const handleSubmitForm = async (formData) => {
-    console.log(formData);
+    const { mark, feedback } = formData;
+    setLoading(true);
+    try {
+      const data = await updateAssignment(assignment._id, {
+        mark,
+        feedback,
+      });
+      if (data.success) {
+        setIsOpen(false);
+        toast.success("Assignment updated successfully ❤️");
+        setLoading(false);
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
   };
   return (
     <Dialog
@@ -100,7 +121,7 @@ const Modal = ({ assignment, isOpen, setIsOpen }) => {
                   type="submit"
                   className="inline-flex  justify-end items-center gap-2 rounded-md bg-green-500 py-1.5 px-3 text-sm/6 font-semibold text-white shadow-inner "
                 >
-                  Submit
+                  {loading ? "Loading..." : "Submit"}
                 </Button>
                 <Button
                   className="inline-flex  justify-end items-center gap-2 rounded-md bg-red-500 py-1.5 px-3 text-sm/6 font-semibold text-white shadow-inner "

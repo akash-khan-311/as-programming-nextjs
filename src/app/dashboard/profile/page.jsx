@@ -1,3 +1,6 @@
+import { auth } from "@/auth";
+import Profile from "@/components/Dashboard/common/Profile";
+
 export const metadata = {
   title: "Profile || AS Programming",
   description:
@@ -16,10 +19,12 @@ export const metadata = {
   },
 };
 
-const ProfilePage = () => {
+const ProfilePage = async () => {
+  const session = await auth();
+  const user = session.user;
   return (
     <>
-      <div className="">Welcome to Profile page</div>
+      <Profile user={user} />
     </>
   );
 };

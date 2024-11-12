@@ -8,6 +8,8 @@ const UserSchema = new mongoose.Schema(
     avatar: { type: String, default: null },
     status: { type: String, default: "verified", required: true },
     role: { type: String, default: "user", required: true },
+    phone: { type: String, default: "--------" },
+    address: { type: String, default: "--------" },
   },
   { timestamps: true }
 );

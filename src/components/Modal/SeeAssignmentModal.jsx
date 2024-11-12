@@ -61,6 +61,17 @@ const SeeAssignmentModal = ({ isOpen, setIsOpen, assignment }) => {
                   )}
                 </ul>
               </div>
+              <div className="flex justify-center items-center">
+                <span className="text-3xl md:text-4xl lg:text-5xl">
+                  {assignment?.mark == 60 && "😍"}
+                  {assignment?.mark == 50 && "❤️"}
+                  {assignment?.mark == 40 && "😊"}
+                  {assignment?.mark == 30 && "🙂"}
+                  {assignment?.mark == 20 && "😫"}
+                  {assignment?.mark == 10 && "😢"}
+                  {assignment?.mark == 0 && "😭"}
+                </span>
+              </div>
               <h1 className="text-4xl font-bold text-white text-center my-5">
                 {assignment.mark}/60
               </h1>

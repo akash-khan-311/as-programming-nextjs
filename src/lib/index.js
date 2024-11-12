@@ -277,6 +277,33 @@ export const getAssignmentForInstructor = async (email) => {
   }
 };
 
+//  Update Assignment for instructor
+
+export const updateAssignment = async (id, assignmentData) => {
+  try {
+    const response = await fetch(
+      `http://localhost:3000/api/assignment/update/${id}`,
+      // { revalidate: true, cache: "no-store" },
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(assignmentData),
+      }
+    );
+    const data = await response.json();
+    if (response.ok) {
+      return data;
+    } else {
+      throw new Error("Failed to update assignment");
+    }
+  } catch (error) {
+    console.log("Error updating assignment:", error);
+    return null;
+  }
+};
+
 // Convert TimeStamp to Date
 
 export const convertTimestampToDate = (timestamp, format = "dd-MM-yyyy") => {
