@@ -2,7 +2,7 @@ import { auth } from "@/auth";
 import ManageCoursesAd from "@/components/Dashboard/Admin/ManageCoursesAd";
 import { getAllCoursesAdmin } from "@/lib";
 export const metadata = {
-  title: "Manage Courses | Dashbaord",
+  title: "Manage Course | Dashbaord",
   description:
     "AS Programming offers a wide range of IT-related courses, including web development, data science, cybersecurity, cloud computing, and full-stack JavaScript development. Start your learning journey with us and achieve your career goals.",
   keywords:
