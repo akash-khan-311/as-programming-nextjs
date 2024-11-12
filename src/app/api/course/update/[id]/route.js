@@ -22,7 +22,6 @@ export async function PUT(req, { params }) {
       course,
     });
   } catch (error) {
-    console.error("Error approving course:", error);
     return NextResponse.json({ message: error.message }, { status: 500 });
   }
 }

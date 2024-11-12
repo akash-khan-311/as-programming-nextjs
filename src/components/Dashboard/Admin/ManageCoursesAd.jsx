@@ -12,7 +12,7 @@ const ManageCoursesAd = ({ courses, authUser }) => {
         router.push("/");
       }
       const result = await updateCourseStatus(id);
-      console.log(result);
+
       if (result.success) {
         toast.success(result.message, "❤️");
         router.refresh();

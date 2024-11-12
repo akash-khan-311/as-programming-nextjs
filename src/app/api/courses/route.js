@@ -8,7 +8,6 @@ export async function GET(req, res) {
     const courses = await Course.find({ status: "approved" });
     return NextResponse.json(courses);
   } catch (error) {
-    console.error("Error fetching courses:", error);
     return NextResponse.json(
       { message: "Error fetching courses" },
       { status: 500 }

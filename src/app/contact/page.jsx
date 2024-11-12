@@ -5,7 +5,6 @@ const ContactPage = async () => {
   const session = await auth();
 
   // if (!session) redirect("/signup");
-  console.log(session);
 
   return (
     <>

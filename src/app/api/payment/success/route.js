@@ -29,7 +29,6 @@ export async function POST(req) {
       status: "success", // Adjust based on payment status
       date: new Date(),
     });
-    console.log("this is payment details from api", paymentDetails);
 
     // Save the payment details to the database
     await Payment.create(paymentDetails);

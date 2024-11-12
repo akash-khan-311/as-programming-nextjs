@@ -14,7 +14,6 @@ export async function PUT(req, { params }) {
 
     const { role } = data;
 
-    console.log("this is role", role);
     const updatedUser = await User.findOneAndUpdate(
       { email },
       { role },

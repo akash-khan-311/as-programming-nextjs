@@ -17,7 +17,6 @@ export async function GET(req, { params }) {
     }
     return NextResponse.json({ success: true, courses });
   } catch (error) {
-    console.error("Error fetching courses:", error);
     return NextResponse.json({
       success: false,
       message: error.message,

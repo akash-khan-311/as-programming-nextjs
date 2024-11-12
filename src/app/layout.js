@@ -27,7 +27,6 @@ export default async function RootLayout({ children }) {
   const session = await auth();
   await dbConnect();
 
-  console.log();
   return (
     <html lang="en">
       <body
