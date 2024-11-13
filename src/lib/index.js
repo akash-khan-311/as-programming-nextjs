@@ -16,7 +16,7 @@ export const getUserRole = async () => {
 export const getSingleCourse = async (id) => {
   try {
     const response = await fetch(
-      `https://as-programming-next.netlify.app/api/course/${id}`
+      `https://as-programming.vercel.app/api/course/${id}`
     );
     const data = await response.json();
 
@@ -34,7 +34,7 @@ export const getSingleCourse = async (id) => {
 export const getCoursesForIns = async (email) => {
   try {
     const response = await fetch(
-      `https://as-programming-next.netlify.app/api/courses/${email}`
+      `https://as-programming.vercel.app/api/courses/${email}`
     );
     const data = await response.json();
     if (response.ok) {
@@ -50,12 +50,9 @@ export const getCoursesForIns = async (email) => {
 // Get all users from db
 export const getAllUsers = async () => {
   try {
-    const res = await fetch(
-      "https://as-programming-next.netlify.app/api/users",
-      {
-        cache: "no-store",
-      }
-    );
+    const res = await fetch("https://as-programming.vercel.app/api/users", {
+      cache: "no-store",
+    });
     const data = await res.json();
     if (res.ok) {
       return data.users;
@@ -70,7 +67,7 @@ export const getAllUsers = async () => {
 export const updatedUserRoles = async (email, role) => {
   try {
     const response = await fetch(
-      `https://as-programming-next.netlify.app/api/user/${email}`,
+      `https://as-programming.vercel.app/api/user/${email}`,
 
       {
         method: "PUT",
@@ -95,7 +92,7 @@ export const updatedUserRoles = async (email, role) => {
 export const getAllCoursesAdmin = async (email) => {
   try {
     const response = await fetch(
-      `https://as-programming-next.netlify.app/api/admin/courses/${email}`,
+      `https://as-programming.vercel.app/api/admin/courses/${email}`,
       {
         cache: "no-store",
       }
@@ -117,7 +114,7 @@ export const getAllCoursesAdmin = async (email) => {
 export const updateCourseStatus = async (id) => {
   try {
     const response = await fetch(
-      `https://as-programming-next.netlify.app/api/course/update/${id}`,
+      `https://as-programming.vercel.app/api/course/update/${id}`,
       { method: "PUT" },
       { cache: "no-store" }
     );
@@ -134,7 +131,7 @@ export const updateCourseStatus = async (id) => {
 export const getBeginnerCourses = async () => {
   try {
     const response = await fetch(
-      `https://as-programming-next.netlify.app/api/courses/begginer`,
+      `https://as-programming.vercel.app/api/courses/begginer`,
       {
         cache: "no-store",
         revalidatePath: "/",
@@ -153,15 +150,12 @@ export const getBeginnerCourses = async () => {
 
 export const addToCart = async (email, courseId) => {
   try {
-    const response = await fetch(
-      "https://as-programming-next.netlify.app/api/cart",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, courseId }),
-        next: { revalidate: new Date().getSeconds() },
-      }
-    );
+    const response = await fetch("https://as-programming.vercel.app/api/cart", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, courseId }),
+      next: { revalidate: new Date().getSeconds() },
+    });
     const data = await response.json();
     if (response.ok) {
       return data;
@@ -177,7 +171,7 @@ export const addToCart = async (email, courseId) => {
 export const sslCommerzPayment = async (payload) => {
   try {
     const response = await fetch(
-      "https://as-programming-next.netlify.app/api/payment",
+      "https://as-programming.vercel.app/api/payment",
       {
         method: "POST",
         headers: {
@@ -201,7 +195,7 @@ export const sslCommerzPayment = async (payload) => {
 export const getPurchasedCourses = async (email) => {
   try {
     const response = await fetch(
-      `https://as-programming-next.netlify.app/api/purchased/course/${email}`,
+      `https://as-programming.vercel.app/api/purchased/course/${email}`,
       {
         cache: "no-store",
       }
@@ -222,7 +216,7 @@ export const getPurchasedCourses = async (email) => {
 export const saveAssignment = async (assignmentData) => {
   try {
     const response = await fetch(
-      "https://as-programming-next.netlify.app/api/assignment",
+      "https://as-programming.vercel.app/api/assignment",
       {
         method: "POST",
         headers: {
@@ -246,7 +240,7 @@ export const saveAssignment = async (assignmentData) => {
 export const getAssignmentForStudent = async (email) => {
   try {
     const response = await fetch(
-      `https://as-programming-next.netlify.app/api/assignment/student/${email}`,
+      `https://as-programming.vercel.app/api/assignment/student/${email}`,
       {
         cache: "no-store",
       }
@@ -267,7 +261,7 @@ export const getAssignmentForStudent = async (email) => {
 export const getAssignmentForInstructor = async (email) => {
   try {
     const response = await fetch(
-      `https://as-programming-next.netlify.app/api/assignment/instructor/${email}`,
+      `https://as-programming.vercel.app/api/assignment/instructor/${email}`,
       {
         cache: "no-store",
       }
@@ -288,7 +282,7 @@ export const getAssignmentForInstructor = async (email) => {
 export const updateAssignment = async (id, assignmentData) => {
   try {
     const response = await fetch(
-      `https://as-programming-next.netlify.app/api/assignment/update/${id}`,
+      `https://as-programming.vercel.app/api/assignment/update/${id}`,
       // { revalidate: true, cache: "no-store" },
       {
         method: "PATCH",
@@ -314,7 +308,7 @@ export const updateAssignment = async (id, assignmentData) => {
 export const getPaymentSummary = async () => {
   try {
     const response = await fetch(
-      "https://as-programming-next.netlify.app/api/payment/summary",
+      "https://as-programming.vercel.app/api/payment/summary",
       {
         cache: "no-store",
       }
@@ -335,7 +329,7 @@ export const getPaymentSummary = async () => {
 export const getPaymentDetails = async () => {
   try {
     const response = await fetch(
-      "https://as-programming-next.netlify.app/api/payment/detailed",
+      "https://as-programming.vercel.app/api/payment/detailed",
       {
         cache: "no-store",
       }

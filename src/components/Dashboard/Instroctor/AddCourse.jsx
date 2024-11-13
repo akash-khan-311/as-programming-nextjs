@@ -64,7 +64,7 @@ const AddCourse = ({ user }) => {
 
       // Save course to backend
       const response = await fetch(
-        `https://as-programming-next.netlify.app/api/savecourse`,
+        `https://as-programming.vercel.app/api/savecourse`,
         {
           method: "POST",
           headers: {

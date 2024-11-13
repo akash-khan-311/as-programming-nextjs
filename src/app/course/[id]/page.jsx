@@ -20,9 +20,7 @@ export const metadata = {
 };
 const CourseDetailsPage = async ({ params: { id } }) => {
   // const course = await getSingleCourse(id);
-  const res = await fetch(
-    `https://as-programming-next.netlify.app/api/course/${id}`
-  );
+  const res = await fetch(`https://as-programming.vercel.app/api/course/${id}`);
   const data = await res.json();
   const course = data.course;
 

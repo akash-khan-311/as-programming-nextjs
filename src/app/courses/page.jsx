@@ -6,7 +6,7 @@ import { revalidatePath } from "next/cache";
 import { HoverEffect } from "@/components/ui/card-hover-effect";
 const CoursesPage = async () => {
   const res = await fetch(
-    `https://as-programming-next.netlify.app/api/courses`,
+    `https://as-programming.vercel.app/api/courses`,
     {
       cache: "no-store",
     },
