@@ -6,6 +6,7 @@ import { Toaster } from "react-hot-toast";
 import { auth } from "@/auth";
 import dbConnect from "@/lib/dbConnect";
 import Footer from "@/components/Shared/Footer";
+import TawkToWidget from "@/components/Shared/TawkToWidget";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -52,7 +53,7 @@ export default async function RootLayout({ children }) {
           <Toaster position="top-center" reverseOrder={false} />
           {children}
         </main>
-
+        <TawkToWidget />
         <Footer />
       </body>
     </html>
