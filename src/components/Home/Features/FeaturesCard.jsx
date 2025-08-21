@@ -1,12 +1,12 @@
-import Image from "next/image";
+import Image from 'next/image';
 
 const FeatureCard = () => {
   return (
     <div className="  text-white flex flex-col md:flex-row justify-between items-center  gap-10  ">
-      <div className="hover:backdrop-blur-xl hover:bg-white/10 w-full transition-all duration-500 hover:scale-105 text-center p-4 backdrop-blur-sm bg-white/20   min-h-80 flex flex-col items-center justify-center  ">
+      <div className="w-full transition-all duration-500 hover:-mb-16 text-center p-4 bg-gray-600 min-h-80 flex flex-col items-center justify-center  ">
         <Image
           className="mx-auto w-32 h-32"
-          src={"/upgrade.png"}
+          src={'/upgrade.png'}
           width={100}
           height={100}
           alt="Upgrade"
@@ -14,10 +14,10 @@ const FeatureCard = () => {
         <h3 className="text-xl my-3 md:text-2xl">Upgrade Skills & Knowledge</h3>
         <p>Learing Latest Skill that required with curren career requirement</p>
       </div>
-      <div className="text-center hover:backdrop-blur-xl hover:bg-white/10 w-full transition-all duration-500 hover:scale-105 p-4 backdrop-blur-sm bg-white/20  min-h-80 flex flex-col items-center justify-center ">
+      <div className="text-center w-full transition-all duration-500 hover:-mb-16 p-4 bg-gray-600  min-h-80 flex flex-col items-center justify-center ">
         <Image
           className="mx-auto w-32 h-32"
-          src={"/course-reco.png"}
+          src={'/course-reco.png'}
           width={100}
           height={100}
           alt="Upgrade"
@@ -27,10 +27,10 @@ const FeatureCard = () => {
         </h3>
         <p>As Programming course recomendation based your interest</p>
       </div>
-      <div className="text-center hover:backdrop-blur-xl hover:bg-white/10 w-full transition-all duration-500 hover:scale-105 p-4 backdrop-blur-sm bg-white/20  min-h-80 flex flex-col items-center justify-center ">
+      <div className="text-center w-full transition-all duration-500 hover:-mb-16 p-4 bg-gray-600  min-h-80 flex flex-col items-center justify-center ">
         <Image
           className="mx-auto w-32 h-32"
-          src={"/dashboardpng.png"}
+          src={'/dashboardpng.png'}
           width={100}
           height={100}
           alt="Upgrade"

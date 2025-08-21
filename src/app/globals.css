@@ -72,13 +72,13 @@ input[type='number'] {
 }
 
 body {
-  background: url("/bg-jpg.jpg"),
+  /* background: url('/bg-jpg.jpg'),
     linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
   background-blend-mode: overlay;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  background-attachment: fixed;
+  background-attachment: fixed; */
 
   height: 100vh;
   overflow-x: hidden;
@@ -86,14 +86,15 @@ body {
 
 .section {
   padding: 50px 0;
-
 }
 
 .btn {
-  background-image: linear-gradient(to right,
-      #aa076b 0%,
-      #61045f 51%,
-      #aa076b 100%);
+  background-image: linear-gradient(
+    to right,
+    #aa076b 0%,
+    #61045f 51%,
+    #aa076b 100%
+  );
 
   border-radius: 5px;
   text-align: center;
@@ -108,7 +109,6 @@ body {
   /* change the direction of the change here */
   text-decoration: none;
 }
-
 
 /* For Webkit browsers like Chrome and Safari */
 ::-webkit-scrollbar {

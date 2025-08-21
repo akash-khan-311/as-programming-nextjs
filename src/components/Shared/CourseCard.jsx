@@ -1,13 +1,13 @@
-"use client";
-import Image from "next/image";
-import Link from "next/link";
-import { FaBookOpen, FaDollarSign } from "react-icons/fa";
+'use client';
+import Image from 'next/image';
+import Link from 'next/link';
+import { FaBookOpen, FaDollarSign } from 'react-icons/fa';
 
 const CourseCard = ({ data }) => {
   const { img, title, duration, description, price, _id } = data;
 
   return (
-    <div className="relative flex backdrop-blur-xl min-h-[500px] flex-col rounded-xl bg-white/30 text-white shadow-md">
+    <div className="relative flex min-h-[500px] flex-col rounded-xl bg-gray-600 text-white shadow-md">
       <div className="relative mx-4 mt-4  h-56 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40">
         <Image
           src={img}

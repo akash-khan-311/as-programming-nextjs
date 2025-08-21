@@ -1,12 +1,12 @@
 // import { HeroHighlight } from "../ui/HeroHighLight";
-import { TextGenerateEffect } from "../ui/text-generate-effect";
-import Buttons from "./Buttons";
+import { TextGenerateEffect } from '../ui/text-generate-effect';
+import Buttons from './Buttons';
 
 const Hero = () => {
   const words = `Welcome to the AS Programming Course Platform`;
   return (
     <>
-      <section className="hero-section">
+      <section className="hero-section z-50 relative">
         <div className="flex flex-col justify-center items-center  text-white text-center min-h-[calc(100vh)]">
           <h1 className="flex justify-center items-center w-full">
             <TextGenerateEffect

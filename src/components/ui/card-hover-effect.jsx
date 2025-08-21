@@ -1,9 +1,9 @@
-"use client";
-import { cn } from "@/lib/utils";
-import { AnimatePresence, motion } from "framer-motion";
-import Image from "next/image";
-import Link from "next/link";
-import { useState } from "react";
+'use client';
+import { cn } from '@/lib/utils';
+import { AnimatePresence, motion } from 'framer-motion';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useState } from 'react';
 
 export const HoverEffect = ({ items, className }) => {
   let [hoveredIndex, setHoveredIndex] = useState(null);
@@ -11,7 +11,7 @@ export const HoverEffect = ({ items, className }) => {
   return (
     <div
       className={
-        "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-8  "
+        'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-8  '
       }
     >
       {items.map((item, idx) => (
@@ -51,7 +51,7 @@ export const HoverEffect = ({ items, className }) => {
             <CardTitle>{item.title}</CardTitle>
             <CardDescription>
               {item.description.length > 100
-                ? item.description.slice(0, 100) + "..."
+                ? item.description.slice(0, 100) + '...'
                 : item.description}
             </CardDescription>
             {/* className="bottom-5 w-full absolute btn hover:text-white py-2
@@ -73,7 +73,7 @@ export const Card = ({ className, children }) => {
   return (
     <div
       className={cn(
-        "rounded-2xl h-full w-full p-1 overflow-hidden hover:bg-slate-700 transition-all duration-300 backdrop-blur-xl bg-white/10 relative z-20",
+        'rounded-2xl h-full w-full p-1 overflow-hidden hover:bg-slate-700 transition-all duration-300 backdrop-blur-xl bg-white/10 relative z-20',
         className
       )}
     >
@@ -85,7 +85,7 @@ export const Card = ({ className, children }) => {
 };
 export const CardTitle = ({ className, children }) => {
   return (
-    <h4 className={cn("text-zinc-100 font-bold tracking-wide mt-4", className)}>
+    <h4 className={cn('text-zinc-100 font-bold tracking-wide mt-4', className)}>
       {children}
     </h4>
   );
@@ -94,7 +94,7 @@ export const CardDescription = ({ className, children }) => {
   return (
     <p
       className={cn(
-        "mt-4 text-zinc-400 tracking-wide leading-relaxed text-sm",
+        'mt-4 text-zinc-400 tracking-wide leading-relaxed text-sm',
         className
       )}
     >

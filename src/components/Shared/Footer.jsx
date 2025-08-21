@@ -1,21 +1,21 @@
-"use client";
+'use client';
 
-import Image from "next/image";
+import Image from 'next/image';
 
-import { usePathname } from "next/navigation";
-import Container from "./Container";
-import ActiveLinks from "./ActiveLinks";
+import { usePathname } from 'next/navigation';
+import Container from './Container';
+import ActiveLinks from './ActiveLinks';
 
 const currentYear = new Date().getFullYear();
 
 const Footer = () => {
   const pathname = usePathname();
-  const isDashboard = pathname.startsWith("/dashboard");
+  const isDashboard = pathname.startsWith('/dashboard');
   return (
     <footer
       className={`w-full ${
-        isDashboard ? "hidden" : ""
-      } py-6 backdrop-blur-lg bg-white/10`}
+        isDashboard ? 'hidden' : ''
+      } py-6 backdrop-blur-lg bg-gray-600`}
     >
       <Container>
         <div className="flex flex-row flex-wrap items-center justify-center text-center  gap-y-6 gap-x-12 md:justify-between">
@@ -26,7 +26,7 @@ const Footer = () => {
               className="md:w-full w-20"
               width={100}
               height={100}
-            />{" "}
+            />{' '}
             <span className="md:ml-2 text-4xl md:text-5xl">Programming</span>
           </div>
           <ul className="flex flex-wrap items-center justify-center gap-y-2 gap-x-8">
